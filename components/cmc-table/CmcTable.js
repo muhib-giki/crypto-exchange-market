@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react'
 import btc from '../../assets/btc.png'
 import { CoinMarketContext } from '../../context/context'
-
+import CmcTableHeader from './CmcTableHeader'
 const CmcTable = () => {
   let { getTopTenCoins } = useContext(CoinMarketContext)
   const [coinData, setCoinData] = useState(null)
@@ -26,7 +26,33 @@ const CmcTable = () => {
   return (
     <div className="font-bold text-white">
       <div className="mx-auto max-w-screen-2xl">
-        <table className="w-full"></table>
+        <table className="w-full">
+          <CmcTableHeader />
+          {/* {coinData && coinData ? (
+            coinData.map((coin, index) => {
+              return (
+                <CMCtableRow
+                  key={index}
+                  starNum={coin.cmc_rank}
+                  coinName={coin.name}
+                  coinSymbol={coin.symbol}
+                  coinIcon={btc}
+                  showBuy={true}
+                  hRate={coin.quote.USD.percent_change_24h}
+                  dRate={coin.quote.USD.percent_change_7d}
+                  hRateIsIncrement={true}
+                  price={coin.quote.USD.price}
+                  marketCapValue={coin.quote.USD.market_cap}
+                  volumeCryptoValue={coin.quote.USD.volume_24h}
+                  voulumeValue={coin.total_supply}
+                  circulatingSupply={coin.circulating_supply}
+                />
+              )
+            })
+          ) : (
+            <></>
+          )} */}
+        </table>
       </div>
     </div>
   )
